@@ -52,10 +52,10 @@ namespace ConsoleApp1
         }
         public void SelectionSortASC()
         {
-            for(int i = 0; i < itemArray.Length; i++)
+            for(int i = 0; i < numItem; i++)
             {
                 int min = i;
-                for(int j = i + 1; j < itemArray.Length; j++)
+                for(int j = i + 1; j < numItem; j++)
                 {
                     if (itemArray[j] < itemArray[min])
                         min = j;
@@ -67,17 +67,55 @@ namespace ConsoleApp1
         }
         public void InsertionSortAsc()
         {
-            for (int i = 0; i < itemArray.Length - 1; i++)
+            for (int i = 1; i < numItem; i++)
             {
-                int item = itemArray[i];
+                int temp = itemArray[i];
                 int j = i;
-                while (j > 0 && itemArray[j - 1] > item)
+                while (j > 0 && itemArray[j - 1] > temp)
                 {
                     itemArray[j] = itemArray[j - 1];
                     j = j - 1;
-                    itemArray[j] = item;
+                    itemArray[j] = temp;
                 }
             }
+        }
+        public void andrew()
+        {
+            for(int start=1;start<numItem; start++)
+            {
+                int temp = itemArray[start];
+                int y = start - 1;
+                while (y >= 0 && itemArray[y] > temp)
+                {
+                    itemArray[y + 1] = itemArray[y];
+                    y--;
+                }
+                itemArray[y + 1] = temp;
+            }
+        }
+        public int BinarySearch(int item)
+        {
+            InsertionSortAsc();
+            int lo = 0;
+            int hi = numItem - 1;
+            int mid = 0;
+            while (lo <= hi)
+            {
+                mid = (lo + hi) / 2;
+                if (itemArray[mid] == item)
+                {
+                    return mid;
+                }
+                if (itemArray[mid] > item)
+                {
+                    hi = mid - 1;
+                }
+                else
+                {
+                    lo = mid + 1;
+                }
+            }
+            return -1;
         }
     }
 }

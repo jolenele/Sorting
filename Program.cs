@@ -18,9 +18,10 @@ namespace ConsoleApp1
             ua.addLast(100);
             ua.addLast(99);
             ua.printList();
-            ua.SelectionSortASC();
+            ua.andrew();
             Console.WriteLine("\n");
             ua.printList();
+            Console.WriteLine("\n"+ua.BinarySearch(100));
             Console.ReadKey();
         }
     }
