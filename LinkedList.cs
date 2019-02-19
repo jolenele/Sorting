@@ -65,7 +65,8 @@ class LinkedList
             printRevHelper(c.next);
             Console.Write(" {0} ", c.data);
         }
-                public void addInOrder(int data)
+                
+    public void addInOrder(int data)
         {
             Node newNode = new Node(data);
             if (head == null || head.data >= newNode.data)
@@ -104,46 +105,7 @@ class LinkedList
                 prev.next = curr.next;
             }
         }
-    public void addInOderAndrew(int data)
-        {
-            Node newNode = new Node(data);
-            if(head!=null || head.data >= newNode.data)
-            {
-                newNode.next = head;
-                head = newNode;
-            }
-            else
-            {
-                Node prev = head, curr = head.next;
-                while(curr!=null && curr.data < newNode.data)
-                {
-                    prev = curr;
-                    curr = curr.next;
-                }
-                newNode.next = curr;
-                prev.next = newNode;
-            }
-        }
 
-
-public void deleteAndrew(int key)
-        {
-            Node curr = head, prev = null;
-            if(curr!=null && curr.data == key)
-            {
-                head = curr.next;
-                return;
-            }
-            while (curr != null && curr.data != key)
-            {
-                prev = curr;
-                curr = curr.next;
-            }
-            if (curr != null)
-            {
-                prev.next = curr.next;
-            }
-        }
 
     }
 
